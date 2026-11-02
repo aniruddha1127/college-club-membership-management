@@ -1,4 +1,3 @@
-# college-club-membership-management
 # College Club Membership Management System
 
 A C++ Data Structures and Algorithms (DSA) project that implements a **College Club Membership Management System** using **Singly Linked Lists** and **Manual Hashing with Separate Chaining**.
@@ -31,7 +30,8 @@ The main objective is to demonstrate the practical application of linked lists a
 - Stores club membership IDs.
 - Maintains the order in which members are added.
 - Supports insertion, deletion and traversal.
-- Uses a tail pointer for efficient insertion at the end.
+- Uses dynamic memory allocation to create nodes.
+- Traverses the list to insert new nodes at the end.
 
 ### 2. Hash Table with Separate Chaining
 - Uses a manually implemented hash table.
@@ -40,6 +40,7 @@ The main objective is to demonstrate the practical application of linked lists a
 - Supports membership searching and duplicate checking.
 
 ### 3. Membership Comparison
+
 Hashing is used to perform:
 - Union of two club membership lists.
 - Intersection of two club membership lists.
@@ -49,7 +50,7 @@ Hashing is used to perform:
 
 - **Programming Language:** C++
 - **Standard:** C++17
-- **Concepts:** Object-Oriented Programming, Singly Linked Lists, Hash Tables, Separate Chaining, Dynamic Memory Allocation.
+- **Concepts:** Object-Oriented Programming, Singly Linked Lists, Pointers, Dynamic Memory Allocation, Hash Tables and Separate Chaining.
 
 ## Time Complexity
 
@@ -57,7 +58,7 @@ Hashing is used to perform:
 |---|---|
 | Hash table search | O(1) average, O(n) worst |
 | Hash table insertion | O(1) average, O(n) worst |
-| Linked list insertion at end | O(1) with tail pointer |
+| Linked list insertion at end | O(n) |
 | Linked list deletion | O(n) |
 | Membership comparison | Expected O(n + m), collision-dependent worst case |
 
