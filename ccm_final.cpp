@@ -17,11 +17,11 @@ public:
 
 class ll {
 public:
-    snode *start, *last;
+    snode *start;
     int count;
 
     ll() {
-        start = last = NULL;
+        start = NULL;
         count = 0;
     }
 
@@ -30,14 +30,19 @@ public:
 
     ~ll() { clear(); }
 
-    // O(1) insertion using tail pointer
+    // Insert at the end by traversing the linked list.
     void insertEnd(int id) {
         snode *n = new snode(id);
-        if (start == NULL)
-            start = last = n;
+
+        if (start == NULL) {
+            start = n;
+        }
         else {
-            last->next = n;
-            last = n;
+            snode *temp = start;
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+            temp->next = n;
         }
         count++;
     }
@@ -51,8 +56,6 @@ public:
                 else
                     prev->next = temp->next;
 
-                if (last == temp)
-                    last = prev;
 
                 delete temp;
                 count--;
@@ -84,7 +87,7 @@ public:
             delete temp;
             temp = nextNode;
         }
-        start = last = NULL;
+        start = NULL;
         count = 0;
     }
 };
@@ -192,12 +195,12 @@ public:
 
 // ---------------- CLUB MANAGEMENT ----------------
 class ClubManager {
-    Club *start, *last;
+    Club *start;
     int nextId;
 
 public:
     ClubManager() {
-        start = last = NULL;
+        start = NULL;
         nextId = 1;
     }
 
@@ -244,11 +247,15 @@ public:
         Club *n = new Club(nextId, name);
         nextId++;
 
-        if (start == NULL)
-            start = last = n;
+        if (start == NULL) {
+            start = n;
+        }
         else {
-            last->next = n;
-            last = n;
+            Club *temp = start;
+            while (temp->next != NULL) {
+                temp = temp->next;
+            }
+            temp->next = n;
         }
         cout << "Club created. Club ID: " << n->clubId << "\n";
     }
